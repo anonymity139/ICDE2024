@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SocketIO Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <script>
+        var socket = io.connect('http://localhost:5000');
+
+        socket.on('initialized', function(data) {
+            console.log("Initialized data:", data.result_vector, data.result1, data.result2);
+        });
+
+        socket.on('receive_data', function(data) {
+            console.log("Received data:", data.result_vector, data.result1, data.result2);
+        });
+
+        function initialize() {
+            socket.emit('initialize', {
+                array: [['a', 'b'], ['c', 'd']],
+                int1: 5,
+                int2: 6
+            });
+        }
+
+        function sendInteger() {
+            socket.emit('send_integer', {
+                integer: 10
+            });
+        }
+    </script>
+
+    <button onclick="initialize()">Initialize</button>
+    <button onclick="sendInteger()">Send Integer</button>
+</body>
+</html>

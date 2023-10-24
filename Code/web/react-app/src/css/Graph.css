@@ -1,0 +1,15 @@
+/*Now the CSS*/
+* {margin: 0; padding: 0;}
+
+
+.large-rect{
+    fill: #FEFFFE;
+    stroke: #ccc;
+    stroke-width: 2;
+}
+
+.large-recthover{
+    fill: #c8e4f8;
+    stroke: #94a0b4;
+    stroke-width: 2;
+}
